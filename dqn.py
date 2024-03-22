@@ -225,10 +225,9 @@ replay_buffer = ReplayBuffer(buffer_size)
 dqn_type = 'DuelingDQN' # choose from 'DQN', 'DoubleDQN' or 'DuelingDQN'
 agent = DQN(state_dim, hidden_dim, action_dim, lr, gamma, epsilon, target_update, device, dqn_type=dqn_type)#, dqn_type='DuelingDQN'
 
-return_list, max_q_value_list = train_DQN(agent, env, num_episodes,
-                                          replay_buffer, minimal_size,
-                                          batch_size)
+return_list, max_q_value_list = train_DQN(agent, env, num_episodes, replay_buffer, minimal_size, batch_size)
 
+# 进行绘图
 episodes_list = list(range(len(return_list)))
 plt.plot(episodes_list, return_list)
 plt.xlabel('Episodes')
